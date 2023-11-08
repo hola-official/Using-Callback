@@ -14,11 +14,15 @@ function App() {
   }, [sum])
   return (
     <main className="App">
-      <input type="text" 
+      <div className="input">
+        <input type="text" 
       placeholder="input"
       value={userInput}
         onChange={ e => setUserInput(e.target.value)}
+        required
       />
+      </div>
+      <h1>OutPut: <code> {userInput || ".."}</code></h1>
     </main>
   )
 }
