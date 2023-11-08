@@ -13,9 +13,9 @@ function App() {
     console.log(`New sum. Value: ${sum()}`);
   }, [sum])
   return (
-    <>
+    <main className="App">
 
-    </>
+    </main>
   )
 }
 
