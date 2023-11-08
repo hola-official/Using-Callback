@@ -4,20 +4,17 @@ function App() {
 
   const [userInput, setUserInput] = useState("")
   const [result, setResult] = useState(0)
-
   const [num1] = useState(4)
-  const [num5] = useState(5)
+  const [num2] = useState(5)
 
-  const sum = useCallback(() => num1 + num5)
+  const sum = useCallback(() => num1 + num2, [num1, num2])
 
-  // const buildArray = () => {
-
-  // }
+  const buildArray = useCallback(() => [num1, num2], [num1, num2])
 
   useEffect(() => {
-    console.log(`New sum. Value: ${sum()}`);
-    setResult(sum())
-  }, [sum])
+    console.log(`New sum. Value: ${buildArray()}`);
+    setResult(buildArray())
+  }, [buildArray])
 
   return (
     <main className="App">
@@ -29,7 +26,7 @@ function App() {
           required
         />
       </div>
-      <h1>OutPut: <code> {userInput || ".."}</code></h1>
+      <h1>OutPut: <code> {userInput || "🙂"}</code></h1>
     </main>
   )
 }
